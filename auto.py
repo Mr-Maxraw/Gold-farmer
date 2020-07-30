@@ -19,4 +19,4 @@ while True:
     do_quests(driver)
     do_steps(driver)
     job_cnt = do_job(driver)
-    sleep(job_cnt * 600 - 750)
+    sleep(job_cnt * 600)
