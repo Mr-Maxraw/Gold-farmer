@@ -1,7 +1,8 @@
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
-import time
+from time import sleep
 import os
+from random import random
 
 driver = webdriver.Chrome()
 driver.get("https://web.simple-mmo.com/")
@@ -21,7 +22,7 @@ element.send_keys(wager[wager_it])
 element.submit()
 
 while True:
-    time.sleep(1)
+    sleep(1)
     element = driver.find_element_by_name('GoldAmount')
     try:
         notify = driver.find_element_by_xpath('//div[@class="notice notice-success"]')
@@ -29,6 +30,7 @@ while True:
     except Exception:
         wager_it = 0 if wager_it == len(wager) - 1 else wager_it + 1 
     finally:
+        sleep(2 * random())
         print(wager[wager_it])
         element.send_keys(wager[wager_it])
         element.submit()
