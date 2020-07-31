@@ -15,7 +15,7 @@ def do_steps(driver):
     driver.get('https://web.simple-mmo.com/travel')
 
     steps = int(driver.find_element_by_id('current_steps').get_attribute('innerHTML'))
-    print(steps)
+    print('we will go for ' + str(steps) + ' steps')
     for i in range(steps):
         do_step = driver.find_element_by_xpath('//button[@class=" btn  btn-primary stepbuttonnew"]')
         ActionChains(driver).click(do_step).perform()

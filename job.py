@@ -4,6 +4,7 @@ from selenium.webdriver import ActionChains
 from log_in import log_in
 import time
 import os
+from random import randint, random
 # from dotenv import load_dotenv
 
 # load_dotenv()
@@ -21,12 +22,14 @@ def do_job(driver):
         time.sleep(1)
         st_job_btn2 =  driver.find_element_by_xpath('//button[text()[contains(., "Start the job")]]')
         slider = driver.find_element_by_xpath('//input[@type="range"]')
-        job_cnt = slider.get_attribute('max')
-        for i in range(int(job_cnt) - 1):
+        #job_cnt = int(slider.get_attribute('max'))
+        job_cnt = randint(6, 10)
+        for i in range(job_cnt - 1):
+            sleep(2 * random())
             slider.send_keys(Keys.RIGHT)
         ActionChains(driver).click(st_job_btn2).perform()
-        print('job count is ' + job_cnt)
-        return int(job_cnt)
+        print('job count is ' + str(job_cnt))
+        return job_cnt
     except:
         print('fail')
         return 0

@@ -27,6 +27,6 @@ while True:
     job_cnt = do_job(driver)
     for i in range(job_cnt * 10 + 1):
         sleep(60)
-        print(i+1)
+        print(i+1, end='', flush=True)
     print('finish loop 1')
     sys.stdout.close()
