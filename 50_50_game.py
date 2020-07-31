@@ -3,6 +3,9 @@ from selenium.webdriver.common.keys import Keys
 from time import sleep
 import os
 from random import random
+from dotenv import load_dotenv
+
+load_dotenv()
 
 driver = webdriver.Chrome()
 driver.get("https://web.simple-mmo.com/")
