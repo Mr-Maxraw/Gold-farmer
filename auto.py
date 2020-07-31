@@ -19,7 +19,7 @@ loop_cnt = 1
 
 while True:
     sys.stdout = open('bot.log', 'a')
-    print('start loop 1')
+    print('start loop ' + str(loop_cnt))
     do_quests(driver)
     do_steps(driver)
     do_quests(driver)
@@ -28,5 +28,6 @@ while True:
     for i in range(job_cnt * 10 + 1):
         sleep(60)
         print(i+1, end='', flush=True)
-    print('finish loop 1')
+    print('\nfinish loop ' + str(loop_cnt))
+    loop_cnt = loop_cnt + 1
     sys.stdout.close()

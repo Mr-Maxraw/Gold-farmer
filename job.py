@@ -31,7 +31,7 @@ def do_job(driver):
         print('job count is ' + str(job_cnt))
         return job_cnt
     except:
-        print('fail')
+        print('fail in jobs')
         return 0
 
 # do_job(driver)
