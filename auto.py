@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from log_in import log_in
-from time import sleep
+from time import sleep, strftime, localtime
 import os
 from dotenv import load_dotenv
 from job import do_job
@@ -19,7 +19,8 @@ loop_cnt = 1
 
 while True:
     sys.stdout = open('bot.log', 'a')
-    print('start loop ' + str(loop_cnt))
+    print(strftime("%Y-%m-%d %H:%M:%S", localtime()))
+    print('start loop ' + str(loop_cnt), flush=True)
     do_quests(driver)
     do_steps(driver)
     do_quests(driver)
