@@ -19,7 +19,27 @@ def do_steps(driver):
     for i in range(steps):
         do_step = driver.find_element_by_xpath('//button[@class=" btn  btn-primary stepbuttonnew"]')
         ActionChains(driver).click(do_step).perform()
-        time.sleep(15)
+        time.sleep(1)
+        try:
+            att_btn = driver.find_element_by_xpath('//a[text()[contains(., " Attack")]]')
+            time.sleep(1)
+            ActionChains(driver).click(att_btn).perform()
+            time.sleep(1)
+            visibitity = driver.find_element_by_id('success-killed').is_displayed()
+            while (not visibitity):
+                ActionChains(driver).click(driver.find_element_by_id('attackButton')).perform()
+                time.sleep(1)
+                visibitity = driver.find_element_by_id('success-killed').is_displayed()
+            time.sleep(0.5)
+            ActionChains(driver).click(driver.find_element_by_xpath('//button[text()[contains(., "OK")]]')).perform()
+            time.sleep(0.5)
+            ActionChains(driver).click(driver.find_element_by_xpath('//a[text()[contains(., "Press here to go back.")]]')).perform()
+        except:
+            pass
+        do_step = driver.find_element_by_xpath('//button[@class=" btn  btn-primary stepbuttonnew"]')
+        btn_txt = do_step.get_attribute('innerHTML')
+        while btn_txt != 'Take another step' and btn_txt != '\nTake a step\n':
+            btn_txt = do_step.get_attribute('innerHTML')
 
 # do_steps(driver)
 # driver.close()
