@@ -12,7 +12,10 @@ import sys
 
 load_dotenv()
 
-driver = webdriver.Chrome()
+chrome_options = webdriver.ChromeOptions()
+chrome_options.add_argument("--mute-audio")
+
+driver = webdriver.Chrome(chrome_options=chrome_options)
 
 log_in(os.environ['EMAIL'], os.environ['PASSWORD'], driver)
 loop_cnt = 1
