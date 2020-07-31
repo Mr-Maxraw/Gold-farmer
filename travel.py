@@ -30,7 +30,7 @@ def do_steps(driver):
                 ActionChains(driver).click(driver.find_element_by_id('attackButton')).perform()
                 time.sleep(1)
                 visibitity = driver.find_element_by_id('success-killed').is_displayed()
-            time.sleep(0.5)
+            time.sleep(1.5)
             ActionChains(driver).click(driver.find_element_by_xpath('//button[text()[contains(., "OK")]]')).perform()
             time.sleep(0.5)
             ActionChains(driver).click(driver.find_element_by_xpath('//a[text()[contains(., "Press here to go back.")]]')).perform()
