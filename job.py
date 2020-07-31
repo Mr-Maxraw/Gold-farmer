@@ -2,7 +2,7 @@ from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
 from selenium.webdriver import ActionChains
 from log_in import log_in
-import time
+from time import sleep
 import os
 from random import randint, random
 # from dotenv import load_dotenv
@@ -19,7 +19,7 @@ def do_job(driver):
     try:
         st_job_btn =  driver.find_element_by_xpath('//a[text()[contains(., "Start working")]]')
         ActionChains(driver).click(st_job_btn).perform()
-        time.sleep(1)
+        sleep(1)
         st_job_btn2 =  driver.find_element_by_xpath('//button[text()[contains(., "Start the job")]]')
         slider = driver.find_element_by_xpath('//input[@type="range"]')
         #job_cnt = int(slider.get_attribute('max'))
