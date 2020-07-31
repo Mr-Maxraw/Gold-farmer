@@ -25,6 +25,7 @@ def do_job(driver):
         for i in range(int(job_cnt) - 1):
             slider.send_keys(Keys.RIGHT)
         ActionChains(driver).click(st_job_btn2).perform()
+        print('job count is ' + job_cnt)
         return int(job_cnt)
     except:
         print('fail')
