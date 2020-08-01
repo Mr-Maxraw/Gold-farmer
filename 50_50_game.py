@@ -41,7 +41,7 @@ while True:
         if wager_it == 0:
             print('loss')
     finally:
-        sleep(1.5 * random())
+        sleep(1 * random() + 0.3)
         print(wager[wager_it], flush=True)
         element.send_keys(wager[wager_it])
         element.submit()
