@@ -23,7 +23,7 @@ def do_job(driver):
         st_job_btn2 =  driver.find_element_by_xpath('//button[text()[contains(., "Start the job")]]')
         slider = driver.find_element_by_xpath('//input[@type="range"]')
         #job_cnt = int(slider.get_attribute('max'))
-        job_cnt = randint(6, 10)
+        job_cnt = randint(5, 7)
         for i in range(job_cnt - 1):
             sleep(2 * random())
             slider.send_keys(Keys.RIGHT)
