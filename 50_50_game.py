@@ -29,9 +29,11 @@ element.submit()
 sys.stdout = open('gold.log', 'a')
 print(strftime("%Y-%m-%d %H:%M:%S", localtime()))
 print('start gold gen', flush=True)
+count = 0
 
 while True:
     #sleep(0.5)
+    count += 1
     element = driver.find_element_by_name('GoldAmount')
     try:
         notify = driver.find_element_by_xpath('//div[@class="notice notice-success"]')
@@ -43,6 +45,9 @@ while True:
     finally:
         sleep(1 * random() + 0.3)
         print(wager[wager_it], flush=True)
+        if wager_it == 0 and count >= 1000:
+            driver.close()
+            break
         element.send_keys(wager[wager_it])
         element.submit()
         
