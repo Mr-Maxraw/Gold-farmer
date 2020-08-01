@@ -17,9 +17,11 @@ chrome_options.add_argument("--mute-audio")
 
 driver = webdriver.Chrome(chrome_options=chrome_options)
 
+driver.set_window_size(800, 800)
+
 log_in(os.environ['EMAIL'], os.environ['PASSWORD'], driver)
 loop_cnt = 1
-issingle = input(int) == 1 
+issingle = int(input()) == 1 
 
 while True:
     sys.stdout = open('bot.log', 'a')
@@ -33,6 +35,7 @@ while True:
     if issingle:
         print('finish single loop (jobs may still be running)')
         sys.stdout.close()
+        driver.close()
         break
     else:
         for i in range(job_cnt * 10 + 1):
