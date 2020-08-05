@@ -24,7 +24,7 @@ def do_quests(driver):
         except:
             driver.refresh()
         try:
-            time.sleep(1)
+            time.sleep(1.5)
             error_msg = driver.find_element_by_id('swal2-validation-message')
             if error_msg.get_attribute('innerHTML') == "Error: You don't have enough quest points.":
                 break
