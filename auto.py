@@ -12,15 +12,18 @@ import sys
 
 load_dotenv()
 
-chrome_options = webdriver.ChromeOptions()
+chrome_options = webdriver.chrome.options.Options()
 chrome_options.add_argument("--mute-audio")
+#chrome_optionsheadless = True
 
-driver = webdriver.Chrome(chrome_options=chrome_options)
+driver = webdriver.Chrome(options=chrome_options)
 
 driver.set_window_size(800, 800)
+driver.set_window_position(0, 0)
 
 log_in(os.environ['EMAIL'], os.environ['PASSWORD'], driver)
 loop_cnt = 1
+print("input 1 for single loop or other int for continuous run")
 issingle = int(input()) == 1 
 
 while True:
