@@ -19,7 +19,7 @@ chrome_options.add_argument("--mute-audio")
 driver = webdriver.Chrome(options=chrome_options)
 
 driver.set_window_size(800, 800)
-driver.set_window_position(0, 0)
+driver.set_window_position(0, 650)
 
 log_in(os.environ['EMAIL'], os.environ['PASSWORD'], driver)
 loop_cnt = 1
