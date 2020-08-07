@@ -26,7 +26,10 @@ def do_quests(driver):
             except:
                 needed_quests.append(quest)
                 pass
-        quest = needed_quests[0]
+        if (len(needed_quests) == 0): 
+            quest = quest_list[-1]
+        else:
+            quest = needed_quests[0]
         try:
             open_modal = quest.find_element_by_xpath('.//button[text()[contains(., "View Quest")]]')
             open_modal.send_keys(Keys.ENTER)
