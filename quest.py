@@ -26,7 +26,7 @@ def do_quests(driver):
             except:
                 needed_quests.append(quest)
                 pass
-        if (len(needed_quests) == 0): 
+        if (not needed_quests): 
             quest = quest_list[-1]
         else:
             quest = needed_quests[0]
