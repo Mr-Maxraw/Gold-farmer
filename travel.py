@@ -17,7 +17,10 @@ def do_steps(driver):
     steps = int(driver.find_element_by_id('current_steps').get_attribute('innerHTML'))
     print('we will go for ' + str(steps) + ' steps')
     for i in range(steps):
-        do_step = driver.find_element_by_xpath('//button[@class=" btn  btn-primary stepbuttonnew"]')
+        container = driver.find_element_by_id("travelBarContainer")
+        while container.is_displayed():
+            container = driver.find_element_by_id("travelBarContainer")
+        do_step = driver.find_element_by_id("primaryStepButton")
         ActionChains(driver).click(do_step).perform()
         time.sleep(1)
         try:
@@ -31,12 +34,10 @@ def do_steps(driver):
                 time.sleep(1)
                 visibitity = driver.find_element_by_id('success-killed').is_displayed()
             time.sleep(1.5)
-            ActionChains(driver).click(driver.find_element_by_xpath('//button[text()[contains(., "OK")]]')).perform()
-            time.sleep(0.5)
-            ActionChains(driver).click(driver.find_element_by_xpath('//a[text()[contains(., "Press here to go back.")]]')).perform()
+            ActionChains(driver).click(driver.find_element_by_xpath('//a[text()[contains(., "Close")]]')).perform()
         except:
             pass
-        do_step = driver.find_element_by_xpath('//button[@class=" btn  btn-primary stepbuttonnew"]')
+        do_step = driver.find_element_by_id("primaryStepButton")
         btn_txt = do_step.get_attribute('innerHTML')
         while btn_txt != 'Take another step' and btn_txt != '\nTake a step\n':
             btn_txt = do_step.get_attribute('innerHTML')
