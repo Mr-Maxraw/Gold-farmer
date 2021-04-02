@@ -4,6 +4,7 @@ from selenium.webdriver import ActionChains
 from log_in import log_in
 import time
 import os
+import random
 # from dotenv import load_dotenv
 
 # load_dotenv()
@@ -20,6 +21,7 @@ def do_steps(driver):
         container = driver.find_element_by_id("travelBarContainer")
         while container.is_displayed():
             container = driver.find_element_by_id("travelBarContainer")
+            time.sleep(0.5 + random.randint(1, 3)/10)
         do_step = driver.find_element_by_id("primaryStepButton")
         ActionChains(driver).click(do_step).perform()
         time.sleep(1)
